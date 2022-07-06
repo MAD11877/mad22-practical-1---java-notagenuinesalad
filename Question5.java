@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Question5
 {
@@ -27,6 +29,32 @@ public class Question5
      */
      
     Scanner in = new Scanner(System.in);
-    
+
+    int num = in.nextInt();
+    ArrayList<Integer> inp = new ArrayList<Integer>();
+
+    for(int i = 0; i<num; i++){
+      int val = in.nextInt();
+      inp.add(val);
+    }
+
+    HashMap<Integer, Integer> dict = new HashMap<Integer, Integer>();
+
+    for(int i : inp){
+      if(dict.containsKey(i)){
+        dict.put(i, dict.get(i)+1);
+      }
+      else{
+        dict.put(i,1);
+      }
+    }
+
+    int biggest = 0;
+    for(int i : dict.keySet()){
+      if(dict.get(i)>biggest){
+        biggest = i;
+      }
+    }
+    System.out.println(biggest);
   }
 }
